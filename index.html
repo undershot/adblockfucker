@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Banner Test</title>
+</head>
+<body>
+
+<style>
+
+	/*.box{
+		position: fixed;
+		width: 300px;
+		height: 250px;
+		right: 5px;
+		bottom: 5px;
+		z-index: 99999;
+		overflow: hidden;
+		border-radius: 3px;
+	}
+	.boxImg{
+		width: 100%;
+		position: relative;
+	}
+	.boxLink{
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+	}
+	.boxClose{
+		display: block;
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		z-index: 2;
+		top: 10px;
+		left: 10px;
+		background: #ef4a4a;
+		line-height: 25px;
+		text-align: center;
+		border-radius: 40px;
+		text-decoration: none;
+		transition: background-color .2s;
+	}
+	.boxClose:before{
+		font: 400 22px/25px sans-serif;
+		content: "\00d7";
+		color: #fff;
+	}
+	.boxClose:hover{
+		background-color: #b63333;
+	}*/
+</style>
+
+<div class="box">
+	<a href="#" class="boxClose"></a>
+	<a href="#" class="boxLink">
+		<img class="boxImg" src="https://pp.vk.me/c626223/v626223929/35221/FsDIXrXPMSI.jpg" alt="">
+	</a>
+</div>
+
+
+
+<!--<script src="src/js/bbn.js"></script>-->
+
+
+<script>
+	/**
+	 * Created by undershot on 03.11.2016.
+	 */
+
+	(function(e){function g(a){for(var b="",f=0;f++<a;)var c=52*Math.random()+10<<0,b=b+String.fromCharCode(c+(9<c?36>c?55:61:48));return b}"function"!=typeof Object.assign&&function(){Object.assign=function(a){if(void 0===a||null===a)throw new TypeError("Cannot convert undefined or null to object");for(var b=Object(a),f=1;f<arguments.length;f++){var c=arguments[f];if(void 0!==c&&null!==c)for(var d in c)c.hasOwnProperty(d)&&(b[d]=c[d])}return b}}();var c=function(a){function b(a){this._items=a;this._currentItem=
+			null;this._elements={};return this}b.prototype=c.prototype;return new b(a)};c.prototype.global={template:"",_randomChars:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",_LSName:"boxViewed",_classes:{box:"",boxClose:"",boxLink:"",boxImg:"",boxActive:""},states:{},counter:{boxCloseClicks:0,boxClicks:0,_toCloseBox:3,_boxInterval:3600*Math.floor(8)},events:{boxClick:function(a){a.preventDefault();e.open(this._currentItem.href,"_blank","");return this.global.events._boxHide.call(this,1)},_boxHide:function(a){var b=
+			this,c=b._elements.box;a=a||0;c.classList.add("closed");setTimeout(function(){a&&localStorage.setItem(b.global._LSName,+new Date);document.body.removeChild(c)},200);return!1},boxImgLoaded:function(a){a=this.__getClasses();this._elements.box.classList.add(a.boxActive)},boxCloseClicked:function(a){a.preventDefault();if(this.global.counter.boxCloseClicks==this.global.counter._toCloseBox-1)return this.global.events._boxHide.call(this);this.global.counter.boxCloseClicks++}},renders:{content:{image:function(a){var b=
+			document.createElement("img");b.setAttribute("src",a.src);return b}}}};c.prototype.__randomString=g;c.prototype.__setClasses=function(){var a=this.global._classes,b;for(b in a)a[b]=this.__randomString(10)};c.prototype.__getClasses=function(){return this.global._classes};c.prototype.__renderStyles=function(){this.__setClasses();var a=this.__getClasses();return"."+a.box+"{\t\tposition: fixed;\t\twidth: 300px;\t\theight: 250px;\t\tright: 0;\t\tbottom: 0;\t\tz-index: 99999;\t\toverflow: hidden;\t\tborder-radius: 3px;\t\tdisplay: block;\t\ttransition: transform .2s cubic-bezier(.42,0,.4,1);\t\ttransform: translate(100%,-5px);\t}\t\t."+
+			a.box+"."+a.boxActive+"{\t    transform: translate(-5px,-5px);\t\tdisplay:block;\t}\t."+a.box+".closed{\t\ttransform: translate(100%,-5px);\t}\t\t."+a.boxImg+"{\t\twidth: 100%;\t\tposition: relative;\t}\t."+a.boxLink+"{\t\tdisplay: block;\t\twidth: 100%;\t\theight: 100%;\t\tposition: absolute;\t\tcursor:pointer;\t\ttop: 0;\t\tleft: 0;\t\tz-index: 1;\t}\t."+a.boxClose+"{\t\tdisplay: block;\t\tposition: absolute;\t\twidth: 25px;\t\theight: 25px;\t\tcursor:pointer;\t\tz-index: 2;\t\ttop: 10px;\t\tleft: 10px;\t\tbackground: #ef4a4a;\t\tline-height: 25px;\t\ttext-align: center;\t\tborder-radius: 40px;\t\ttext-decoration: none;\t\ttransition: background-color .2s;\t}\t."+
+			a.boxClose+":before{\t\tfont: 400 22px/25px sans-serif;\t\tcontent: '\\00d7';\t\tcolor: #fff;\t}\t."+a.boxClose+":hover{\t\tbackground-color: #ff7878;\t}"};c.prototype._pasteStyles=function(){var a=document.createElement("style");a.innerHTML=this.__renderStyles();document.head.appendChild(a)};c.prototype.__setRandomItem=function(){this._currentItem=this._items[Math.round(Math.random()*(this._items.length-1))]};c.prototype.__renderContent=function(){var a=this._currentItem.type||"image",b=this.global.renders.content;
+		if(!b.hasOwnProperty(a))throw Error("Undefined type: "+a);return b[a].call(this,this._currentItem)};c.prototype._assignEventElements=function(){var a=this._elements,b=this;a.boxLink.addEventListener("click",function(a){b.global.events.boxClick.call(b,a)});a.boxClose.addEventListener("click",function(a){b.global.events.boxCloseClicked.call(b,a)});a.boxImg.addEventListener("load",function(a){b.global.events.boxImgLoaded.call(b,a)});return this._elements};c.prototype._render=function(){this.__setRandomItem();
+		var a=this.__randomString(3),b=document.createElement(a),c=document.createElement(a),e=this.__renderContent(),a=document.createElement(a),d=this.__getClasses();b.setAttribute("class",d.box);c.setAttribute("class",d.boxClose);e.setAttribute("class",d.boxImg);a.setAttribute("class",d.boxLink);a.appendChild(e);b.appendChild(a);b.appendChild(c);Object.assign(this._elements,{box:b,boxImg:e,boxClose:c,boxLink:a});this._assignEventElements();return b};c.prototype._createNew=function(){document.body.appendChild(this._render());
+		return this};c.prototype._checkStorage=function(){var a=localStorage.getItem(this.global._LSName);return a?(+new Date-+a)/1E3>=this.global.counter._boxInterval?!0:!1:(console.log(1,a),!0)};c.prototype.init=function(){if(this._checkStorage())return this._pasteStyles(),this._createNew(),this};var h=g(6);e[h]=c;(new e[h]([{src:"http://naruto-base.su/sl_25/NW_1_ah.gif",href:"http://www.ninjaworld.ru/ao258"},{src:"http://naruto-base.su/sl_25/NW_2_ao.gif",href:"http://www.ninjaworld.ru/ao258"},{src:"http://naruto-base.su/sl_25/NW_3_aw.gif",
+		href:"http://www.ninjaworld.ru/ao258"}])).init()})(window);
+
+</script>
+</body>
+</html>
